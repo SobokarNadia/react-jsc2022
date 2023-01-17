@@ -1,6 +1,6 @@
 import React from 'react';
 
-let App = (props) => {
+const App = (props) => {
     return (
         <div></div>
     );
