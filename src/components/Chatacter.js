@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Character({character}) {
+const Character = ({character}) => {
     const {name, status, species, gender, image} = character;
     return (
         <div className={'wrapBlock'}>

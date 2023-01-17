@@ -1,7 +1,7 @@
 import React from 'react';
 import './characters.css'
 
-function Simpson({simpson}) {
+const Simpson = ({simpson}) => {
     const {name, age, gender, pic, occupation} = simpson;
     return (
         <div className={'wrapBlock'}>

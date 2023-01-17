@@ -1,7 +1,7 @@
 import React from 'react';
 import {Simpson} from "./Simpson";
 
-let Simpsons = (props) => {
+const Simpsons = (props) => {
     let simpsons = [
         {
             id:1,
