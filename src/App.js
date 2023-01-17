@@ -1,5 +1,5 @@
 import './App.css';
-import Characters from "./components/Characters";
+import {Characters} from "./components/Characters";
 import {Simpsons} from "./components/Simpsons";
 
 
@@ -16,4 +16,4 @@ function App() {
     );
 }
 
-export default App;
+export {App};

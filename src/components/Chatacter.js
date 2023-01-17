@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Chatacter({character}) {
+function Character({character}) {
     const {name, status, species, gender, image} = character;
     return (
         <div className={'wrapBlock'}>
@@ -15,4 +15,4 @@ function Chatacter({character}) {
     );
 }
 
-export default Chatacter;
+export {Character};

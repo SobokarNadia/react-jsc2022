@@ -16,4 +16,4 @@ function Simpson({simpson}) {
     );
 }
 
-export default Simpson;
+export {Simpson};

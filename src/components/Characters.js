@@ -1,6 +1,6 @@
 import React from 'react';
 import './characters.css'
-import Chatacter from "./Chatacter";
+import {Character} from "./Chatacter";
 
 function Characters() {
     let characters = [
@@ -359,9 +359,9 @@ function Characters() {
     ];
 return(
     <div className={'wrap'}>
-        {characters.map(chatacter => <Chatacter key={chatacter.id} character={chatacter}/>)}
+        {characters.map(chatacter => <Character key={chatacter.id} character={chatacter}/>)}
     </div>
 )
 }
 
-export default Characters;
+export {Characters};

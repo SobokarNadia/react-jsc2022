@@ -1,5 +1,5 @@
 import React from 'react';
-import Simpson from "./Simpson";
+import {Simpson} from "./Simpson";
 
 let Simpsons = (props) => {
     let simpsons = [
