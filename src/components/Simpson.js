@@ -1,7 +1,8 @@
 import React from 'react';
 import './characters.css'
 
-function Simpson({name, age, gender, pic, occupation}) {
+function Simpson({simpson}) {
+    const {name, age, gender, pic, occupation} = simpson;
     return (
         <div className={'wrapBlock'}>
             <img src={pic} alt={name} className={'image'}/>
