@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
+
 import {Post, PostDetails,} from '../index'
-import {postService} from "../../services/postService";
+import {postService} from "../../services";
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);

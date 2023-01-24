@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Launch} from "../index";
+
+import {Launch} from "./";
 
 const SpaceX = () => {
     const [launches, setLaunches] = useState([]);
@@ -12,7 +13,9 @@ const SpaceX = () => {
 
     return (
         <div>
-            {launches.map((launch, i) => <Launch key={i} launch={launch}/>)}
+            {launches.map((launch, i) => {
+                if(launch.date_utc.substring(0,4)) <Launch key={i} launch={launch}/>
+            })}
         </div>
     );
 }

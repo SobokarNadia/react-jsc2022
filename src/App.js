@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Posts, SpaceX, UserPosts, Users} from './components/index'
+
+import {Posts, SpaceX, UserPosts, Users} from './components'
 
 
 const App = () => {

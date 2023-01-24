@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {usersService} from "../../services/usersService";
+
+import {usersService} from "../../services";
 import {User} from "../index";
 
 const Users = ({setCurrentId}) => {
