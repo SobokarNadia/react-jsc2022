@@ -1,2 +1,5 @@
 export * from './UserForm/UserForm'
 export * from './CommentForm/CommentForm'
+export * from './Cars/Cars'
+export * from './Car/Car'
+export * from './CarForm/CarForm'
