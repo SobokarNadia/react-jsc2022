@@ -1,0 +1,15 @@
+.header{
+    min-height: 100px;
+    background: silver;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.header a{
+    text-decoration: none;
+    color: black;
+}
+.header [class='active']{
+    color: white;
+    text-decoration: underline;
+}

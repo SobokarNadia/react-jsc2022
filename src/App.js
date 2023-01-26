@@ -1,8 +1,23 @@
 import React from 'react';
+import {Route, Routes} from "react-router-dom";
 
-const App = (props) => {
+import {Layout} from "./layouts/Layout";
+import {AlbumsPage, CommentPage, NotfoundPage, PostPage, TodosPage} from "./pages";
+
+const App = () => {
     return (
-        <div></div>
+        <div>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route path={'todos'} element={<TodosPage/>} />
+                    <Route path={'albums'} element={<AlbumsPage/>} />
+                    <Route path={'comments'} element={<CommentPage/>}>
+                        <Route path={':postId'} element={<PostPage/>}/>
+                    </Route>
+                </Route>
+                <Route path={'*'} element={<NotfoundPage/>}/>
+            </Routes>
+        </div>
     );
 }
 
