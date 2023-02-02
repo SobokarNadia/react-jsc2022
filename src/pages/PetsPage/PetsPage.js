@@ -9,7 +9,6 @@ const PetsPage = () => {
     const dog = useRef();
 
     const [state, dispatch] = useReducer(reducer, null, initValue);
-    console.log(state)
     return (
         <div>
             <input type="text" placeholder={'Cat name'} ref={cat}/>
