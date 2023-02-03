@@ -1,3 +1,5 @@
 export * from './PostsPage/PostsPage'
 export * from './CommentsPage/CommentsPage'
 export * from './PetsPage/PetsPage'
+export * from './CarPage/CarPage'
+export * from './UserPage/UserPage'
