@@ -1,8 +1,16 @@
 import React from 'react';
 
-const App = (props) => {
+import {Header, Posts, Users} from "./components";
+
+const App = () => {
     return (
-        <div></div>
+        <div>
+            <Header/>
+            <div style={{display:'flex', justifyContent: 'space-between'}}>
+                <Users/>
+                <Posts/>
+            </div>
+        </div>
     );
 }
 
