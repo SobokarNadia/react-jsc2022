@@ -3,22 +3,25 @@ import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 
 import {carValidator} from "../../validators";
-import {carService} from "../../services";
+import {useDispatch, useSelector} from "react-redux";
+import {carActions} from "../../redux";
 
-const CarForm = ({setCars, updateCar}) => {
+const CarForm = () => {
+    const dispatch = useDispatch();
+
+    const {updateCar} = useSelector(state => state.cars);
+
     const {register, handleSubmit, formState: {errors, isValid}, reset, setValue} = useForm({
         mode: "onBlur",
         resolver: joiResolver(carValidator)
     });
 
-    const submit = async (car) => {
+    const submit =  (car) => {
         if (updateCar) {
-            const {data} = await carService.update(car, updateCar.id);
-            setCars(prev => prev.map(el => (el.id === data.id) ? data : el));
+            dispatch(carActions.updateCar({car, id:updateCar.id}))
             reset();
         } else {
-            const {data} = await carService.create(car);
-            setCars(prev => [...prev, data]);
+            dispatch(carActions.createCar({car}));
             reset();
         }
     }
@@ -45,6 +48,5 @@ const CarForm = ({setCars, updateCar}) => {
             <button disabled={!isValid}>{!updateCar ? 'Add Car' : 'Update'}</button>
         </form>
     );
-};
-
-export {CarForm};
+}
+export {CarForm}

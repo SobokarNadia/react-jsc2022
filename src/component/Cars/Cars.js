@@ -1,24 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
 
 import {Car} from "../Car/Car";
-import {carService} from "../../services";
 
-const Cars = ({cars, setUpdateCar, setCars}) => {
-    const [deleteCar, setDeleteCar] = useState(null);
-
-    useEffect(() => {
-        const deleting = async () => {
-            await carService.delete(deleteCar.id);
-            setDeleteCar(null);
-            setCars(prev => prev.filter(car => car.id !== deleteCar.id));
-        }
-
-        if (deleteCar) deleting();
-    }, [deleteCar])
+const Cars = () => {
+    const {cars} = useSelector(state => state.cars);
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car} setUpdateCar={setUpdateCar} setDeleteCar={setDeleteCar}/>)}
+            {cars.map(car => <Car key={car.id} car={car}/>)}
         </div>
     );
 };

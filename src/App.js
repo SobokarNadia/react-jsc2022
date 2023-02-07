@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {UserForm, CarForm, CommentForm, Cars} from "./component";
-import {carService} from "./services";
+
+import {useDispatch} from "react-redux";
+import {carActions} from "./redux";
 
 const App = () => {
-    const [cars, setCars] = useState([]);
-    const [updateCar, setUpdateCar] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        carService.getAll().then(value => value.data).then(value => {
-            setCars(value);
-        });
+        dispatch(carActions.getAll())
     }, [])
 
     return (
@@ -23,9 +22,9 @@ const App = () => {
             <hr/>
 
             <h1>Task 3:</h1>
-            <CarForm setCars={setCars} updateCar={updateCar} />
+            <CarForm  />
             <hr/>
-            <Cars cars={cars} setUpdateCar={setUpdateCar} setCars={setCars}/>
+            <Cars />
         </div>
     );
 }

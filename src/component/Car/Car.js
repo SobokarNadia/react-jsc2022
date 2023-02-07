@@ -1,7 +1,12 @@
 import React from 'react';
+import {useDispatch} from "react-redux";
 
-const Car = ({car, setUpdateCar, setDeleteCar}) => {
+import {carActions} from "../../redux";
+
+const Car = ({car}) => {
     const {id, brand, price, year} = car;
+
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -10,8 +15,8 @@ const Car = ({car, setUpdateCar, setDeleteCar}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
 
-            <button onClick={() => setUpdateCar(car)}>Update</button>
-            <button onClick={() => setDeleteCar(car)}>Delete</button>
+            <button onClick={() => dispatch(carActions.setUpdateCar(car))}>Update</button>
+            <button onClick={() => dispatch(carActions.deleteCar({id}))}>Delete</button>
         </div>
     );
 };
