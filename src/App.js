@@ -1,8 +1,11 @@
 import React, {useEffect} from 'react';
-import {UserForm, CarForm, CommentForm, Cars} from "./component";
-
+import {Navigate, Route, Routes} from "react-router-dom";
 import {useDispatch} from "react-redux";
+
 import {carActions} from "./redux";
+import {Layout, AuthRequireLayout} from "./layouts";
+import {CarPage, LoginPage, RegisterPage} from "./pages";
+
 
 const App = () => {
     const dispatch = useDispatch();
@@ -12,20 +15,20 @@ const App = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Task 1:</h1>
-            <UserForm/>
-            <hr/>
+        <Routes>
+            <Route path={'/'} element={ <Layout/>}>
+                <Route index element={<Navigate to={'cars'}/>}/>
 
-            <h1>Task 2:</h1>
-            <CommentForm/>
-            <hr/>
+                <Route element={<AuthRequireLayout/>}>
+                    <Route path={'cars'} element={<CarPage/>}/>
+                </Route>
 
-            <h1>Task 3:</h1>
-            <CarForm  />
-            <hr/>
-            <Cars />
-        </div>
+                <Route path={'login'} element={<LoginPage/>}/>
+                <Route path={'register'} element={<RegisterPage/>}/>
+            </Route>
+
+        </Routes>
+
     );
 }
 

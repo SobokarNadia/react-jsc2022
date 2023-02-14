@@ -4,7 +4,11 @@ import {carService} from "../../services";
 const initialState = {
     cars: [],
     errors: null,
-    updateCar: null
+    updateCar: null,
+    next: null,
+    prev: null,
+    total_pages: null,
+    total_items: null
 }
 
 const getAll = createAsyncThunk(
@@ -67,7 +71,12 @@ const carSlice = createSlice({
         extraReducers: builder =>
             builder
                 .addCase(getAll.fulfilled, (state, action) => {
-                    state.cars = action.payload;
+                    const {items, prev, next, total_pages, total_items} = action.payload
+                    state.cars = items;
+                    state.prev = prev;
+                    state.next = next;
+                    state.total_pages = total_pages;
+                    state.total_items = total_items;
                 })
                 .addCase(getAll.rejected, (state, action) => {
                     state.errors = action.payload;

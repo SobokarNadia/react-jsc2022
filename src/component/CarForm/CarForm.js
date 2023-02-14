@@ -16,9 +16,9 @@ const CarForm = () => {
         resolver: joiResolver(carValidator)
     });
 
-    const submit =  (car) => {
+    const submit =  async (car) => {
         if (updateCar) {
-            dispatch(carActions.updateCar({car, id:updateCar.id}))
+            await dispatch(carActions.updateCar({car, id:updateCar.id}))
             reset();
         } else {
             dispatch(carActions.createCar({car}));
